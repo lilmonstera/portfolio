@@ -1,0 +1,224 @@
+
+.raleway-regular {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+:root {
+  /* Colour */
+  --black: #0b0b0c;
+  --black-2: #141416;          /* raised surfaces */
+  --pink: #e8a2b8;             /* line work, labels, accents */
+  --pink-dim: #a8677d;         /* secondary lines */
+  --pink-faint: rgba(232, 162, 184, 0.14); /* grid lines */
+  --cream: #f2eee9;            /* body text */
+  --cream-dim: #b9b4ae;        /* secondary text */
+  --gingham: #f4c9d6;          /* soft cottagecore accent */
+    
+  /* Type */
+    --font-display: "Raleway", "Arial Black", sans-serif;
+    --font-body: "DM Sans", system-ui, sans-serif;
+  
+  /* Scale */
+  --text-xs: 0.72rem;
+  --text-sm: 0.85rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.75rem, 4vw, 2.5rem);
+  --text-hero: clamp(3.5rem, 10vw, 9rem);
+} 
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--black); 
+  background-image:
+    linear-gradient(var(--pink-faint) 1px, transparent 1px),
+    linear-gradient(90deg, var(--pink-faint) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.5rem, 8vw, 6rem); /* Unbounded is wide, so it needs a smaller size */
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: none; /* mixed case reads softer; use uppercase for a louder look */
+}
+
+.hero-title {
+  font-size: var(--text-hero);
+  color: var(--pink); 
+}
+
+h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-3);
+}
+ 
+p {
+  font-size: var(--text-base);
+}
+
+p #welcome-message {
+  font-size: var(--text-lg);
+  padding: 0px;
+}
+
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px;
+  border-bottom: 1px solid var(--pink-dim);
+}
+
+.logo {
+  display: block;
+  width: auto;
+  height: 30px;
+  overflow: hidden;
+}
+
+.nav-bar-left {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.nav-bar-right {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 30px;
+}
+
+.nav-link {
+  font-size: 12px;
+  color: var(--cream);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.hero-section {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(1.5rem, 3vw, 4rem);
+  width: 100%;
+  padding: clamp(2rem, 5vw, 6rem) 0;
+  box-sizing: border-box;
+}
+
+.hero-content,
+.hero-image {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.hero-content {
+  max-width: 42rem;
+  padding-left: clamp(1rem, 3vw, 3rem);
+}
+
+.hero-content h1 {
+  padding: 20px 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.hero-image {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-left: auto;
+  height: 100%;
+}
+
+.hero-car {
+  display: block;
+  width: min(100%, 700px);
+  height: auto;
+  min-width: 0;
+  box-sizing: border-box;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-left: auto;
+  align-self: flex-end;
+}
+
+@media (max-width: 700px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: stretch;
+    padding-left: clamp(1rem, 4vw, 2rem);
+    padding-right: clamp(1rem, 4vw, 2rem);
+  }
+
+  .hero-content,
+  .hero-image {
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero-content {
+    padding-left: 0;
+  }
+
+  .hero-image {
+    order: 2;
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .hero-car {
+    margin-left: 0;
+  }
+
+  .hero-content h1 {
+    padding: 0;
+  }
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-button {
+  font: var(--xl);
+  font-size: var(--text-sm);
+  display: inline-block;
+  padding: 10px 20px;
+  background: transparent;
+  border: var(--pink-dim) 1px solid;
+  color: var(--cream);
+  text-decoration: none;
+  border-radius: 7px;
+  box-shadow: 0 4px 0 rgba(168, 103, 125, 0.38);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-1px);
+  background: var(--pink-dim);
+  box-shadow: 0 5px 0 rgba(168, 103, 125, 0.38);
+}
